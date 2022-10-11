@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 350px;
+  border: none;
+  border-radius: 10px;
+  font-family: "Helvetica Neue";
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  background-color: lightgrey;
+
+  .pic {
+    margin: 10px;
+
+    img {
+      width: 180px;
+      height: 280px;
+      border-radius: 10px;
+    }
+  }
+
+  .rating {
+    border: none;
+    border-radius: 2px;
+    background-color: lightskyblue;
+    margin-left: 10px;
+    padding: 5px;
+  }
+
+}

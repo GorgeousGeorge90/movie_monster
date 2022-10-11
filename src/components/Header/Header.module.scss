@@ -1,0 +1,28 @@
+.content {
+  grid-area: header;
+  background-color: #333;
+  font-family: 'Inter Tight', sans-serif;
+  display: flex;
+  color: darkorange;
+
+  .title {
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-grow: 1;
+
+    ul {
+      list-style: none;
+      display: flex;
+
+      li a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}

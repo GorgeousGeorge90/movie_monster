@@ -1,0 +1,11 @@
+.content {
+  grid-area: main;
+  font-family: 'Inter Tight', sans-serif;
+  color: #333;
+}
+
+.films {
+  display: flex;
+  justify-content: space-between;
+}
+

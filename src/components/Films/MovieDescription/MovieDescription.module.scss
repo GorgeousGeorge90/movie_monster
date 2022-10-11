@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  border: none;
+  border-radius: 10px;
+  background-color: lightgrey;
+  margin: 20px;
+  padding: 20px;
+  font-family:'Inter Tight', sans-serif;
+
+  img {
+    height: 200px;
+    width: 150px;
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 20px;
+
+    span {
+      padding-top: 20px;
+
+    }
+  }
+
+}
