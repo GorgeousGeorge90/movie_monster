@@ -1,12 +1,33 @@
 .content {
   grid-area: header;
   background-color: #333;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: "Droid Sans Mono Slashed";
   display: flex;
   color: darkorange;
+  margin: 0;
 
   .title {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+
+    h1 {
+      letter-spacing: 10px;
+      font-size: 2.5em;
+      background-image: linear-gradient(to left, #FF4500,#FFA500);
+      color: transparent;
+      margin: 0;
+      -webkit-background-clip: text;
+    }
+
+    p {
+      color: whitesmoke;
+      font-family: fantasy;
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
   }
 
   nav {

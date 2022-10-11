@@ -1,0 +1,22 @@
+.content {
+  font-family: 'Inter Tight', sans-serif;
+  .form {
+
+    input {
+      height: 30px;
+      width: 900px;
+    }
+
+    textarea {
+      resize: none;
+      width: 900px;
+      height: 200px;
+    }
+
+    button {
+      padding: 5px 10px 5px 10px;
+    }
+  }
+}
+
+

@@ -1,11 +1,13 @@
 .content {
   grid-area: main;
   font-family: 'Inter Tight', sans-serif;
+  font-size: 0.8em;
   color: #333;
 }
 
 .films {
   display: flex;
   justify-content: space-between;
+  font-size: 1.1em;
 }
 

@@ -7,7 +7,7 @@ const Header = ()=>{
         <header className={styles.content}>
             <div className={styles.title}>
                 <h1>MovieMonster</h1>
-                <p>Movies are our desire!</p>
+                <p>It's all about movies!</p>
             </div>
             <nav>
                 <ul>

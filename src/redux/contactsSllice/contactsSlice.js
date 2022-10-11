@@ -4,7 +4,7 @@ import {createSlice} from '@reduxjs/toolkit';
 const contactsSlice = createSlice({
         name: 'contacts',
         initialState: {
-            posts:[],
+            posts: JSON.parse(localStorage.getItem('posts')) || []
         },
         reducers: {
             addPost:(state,action) => {
@@ -12,12 +12,22 @@ const contactsSlice = createSlice({
                     id:state.posts.length,
                     name:action.payload.name,
                     text:action.payload.review,
+                    likes:0,
                 }
                 state.posts.push(newPost)
+            },
+            addLike:(state,action)=> {
+                state.posts.map(post=> {
+                    if (post.id === action.payload) {
+                        return post.likes++
+                    } else {
+                        return post
+                    }
+                })
             }
         }
     }
 )
 
-export const {addPost} = contactsSlice.actions
+export const {addPost, addLike} = contactsSlice.actions
 export default contactsSlice.reducer

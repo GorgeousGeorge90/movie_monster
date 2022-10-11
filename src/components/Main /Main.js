@@ -22,7 +22,7 @@ const Main = ()=> {
     return (
         <div className={styles.content}>
             <div className={styles.films_info}>
-                <h1>New films</h1>
+                <h1>New movies</h1>
                 <hr/>
                 <div className={styles.films}>
                     {
