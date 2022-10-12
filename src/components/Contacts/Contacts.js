@@ -1,7 +1,7 @@
 import {useForm} from 'react-hook-form';
 import {useDispatch, useSelector} from 'react-redux';
 import {addPost} from '../../redux/contactsSllice/contactsSlice';
-import {getPosts} from '../../selectors/mainSelectors';
+import {getPosts} from '../../selectors/selectors';
 import Post from './Post/Post';
 import styles from './Contacts.module.scss'
 import {useEffect} from "react";

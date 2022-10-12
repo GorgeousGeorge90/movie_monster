@@ -7,7 +7,22 @@ export const addMovie = createAsyncThunk(
         const response = await movieApi.getMovie()
         dispatch(addFilms(response.data.results))
     }
+)
 
+export const addFreshNews = createAsyncThunk(
+    'main/addFreshNews',
+    async (args,{dispatch})=> {
+        const response = await movieApi.getNews()
+        dispatch(addNews(response.data.results))
+    }
+)
+
+export const addNewSeries = createAsyncThunk(
+    'main/addNewSeries',
+    async (args,{dispatch})=> {
+        const response = await movieApi.getTV()
+        dispatch(addSeries(response.data.results))
+    }
 )
 
 const mainSlice = createSlice({
@@ -25,11 +40,11 @@ const mainSlice = createSlice({
         },
 
         addSeries: (state, action)=> {
-            state.series.push(action.payload)
+            state.series = action.payload
         },
 
         addNews: (state, action)=> {
-            state.news.push(action.payload)
+            state.news = action.payload
         }
 
     },
@@ -40,7 +55,20 @@ const mainSlice = createSlice({
         },
         [addMovie.fulfilled]:(state,action)=> {
             state.isFetching = false
-        }
+        },
+        [addNewSeries.pending]:(state,action)=> {
+            state.isFetching = true
+        },
+        [addNewSeries.fulfilled]:(state,action)=> {
+            state.isFetching = false
+        },
+        [addFreshNews.pending]:(state,action)=> {
+            state.isFetching = true
+        },
+        [addFreshNews.fulfilled]:(state,action)=> {
+            state.isFetching = false
+        },
+
     }
 })
 

@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux';
-import {getNewFilms} from '../../selectors/mainSelectors';
+import {getNewFilms, getNews, getSomeSeries} from '../../selectors/selectors';
 import {useEffect} from "react";
-import {addMovie} from '../../redux/mainSlice/mainSlice';
+import {addMovie, addNewSeries} from '../../redux/mainSlice/mainSlice';
 import Preloader from '../common/Preloader/Preloader';
 import OneFilm from "./OneFilm/OneFilm";
 import styles from './Main.module.scss';
@@ -9,10 +9,14 @@ import styles from './Main.module.scss';
 const Main = ()=> {
 
     const films = useSelector(state=>getNewFilms(state))
+    const series = useSelector(state=>getSomeSeries(state))
+    const news = useSelector(state=>getNews(state))
     const dispatch = useDispatch()
+    console.log(news)
 
     useEffect(()=>{
         dispatch(addMovie())
+        dispatch(addNewSeries())
     }, [])
 
     if (!films) {
@@ -33,9 +37,21 @@ const Main = ()=> {
                     />)
                     }
                 </div>
-                <hr/>
-            </div>
                 <h1>New TV series</h1>
+                <hr/>
+                <div className={styles.films}>
+                    {
+                        series.map(el=> <OneFilm
+                                        key={el.id}
+                                        title={el.name}
+                                        poster={el.poster_path}
+                                        rating={el.vote_average}
+                        />)
+                    }
+                </div>
+
+
+            </div>
                 <h1>News</h1>
             </div>
             )

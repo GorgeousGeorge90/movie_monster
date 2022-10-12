@@ -1,6 +1,7 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import mainReducer from './mainSlice/mainSlice';
 import contactsReducer from './contactsSllice/contactsSlice';
+import sidebarReducer from './sidebarSlice/sidebarSlice';
 
 
 
@@ -8,6 +9,7 @@ import contactsReducer from './contactsSllice/contactsSlice';
 const rootReducer = combineReducers({
     main: mainReducer,
     contacts: contactsReducer,
+    sidebar: sidebarReducer,
 })
 
 const store = configureStore({

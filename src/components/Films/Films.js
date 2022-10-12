@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {getNewFilms} from '../../selectors/mainSelectors';
+import {getNewFilms} from '../../selectors/selectors';
 import Preloader from '../common/Preloader/Preloader';
 import MovieDescription from "./MovieDescription/MovieDescription";
 
