@@ -12,9 +12,6 @@ const movieApi = {
 
     getTV: () => instance(`/tv/top_rated?api_key=bd3e8033318000fc97ee3efcc6c6af83&language=en-US&page=1`),
 
-    getNews: () => instance('/discover/movie?with_people=108916,7467&sort_by=popularity.desc&api_key=bd3e8033318000fc97ee3efcc6c6af83'),
-
-
 }
 
 

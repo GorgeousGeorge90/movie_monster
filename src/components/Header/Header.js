@@ -2,11 +2,14 @@ import {NavLink} from 'react-router-dom';
 import styles from './Header.module.scss'
 import {useDispatch, useSelector} from 'react-redux';
 import {getCheck, getEntrance} from '../../selectors/selectors';
+import {logOut} from '../../redux/sidebarSlice/sidebarSlice';
+import logo from './../../assets/img/star.png';
+import {findAllByDisplayValue} from "@testing-library/react";
 
 
 const Header = ()=> {
     const checked = useSelector(state=>getCheck(state))
-    const dispatch = useDispatch
+    const dispatch = useDispatch()
     const setActive = ({isActive}) => ({color: isActive ? 'darkorange': 'white'})
 
     return (
@@ -24,10 +27,10 @@ const Header = ()=> {
                 </ul>
                 <div className={styles.logo}>
                     {
-                        !checked ? null :
-                            <div>
-                                <p>Hello!</p>
-                                <button>LogOUT</button>
+                        !checked ? null:
+                            <div className={styles.hide}>
+                                <img src={logo} alt="logo"/>
+                                <button onClick={()=>dispatch(logOut())}>Exit</button>
                             </div>
                     }
                 </div>

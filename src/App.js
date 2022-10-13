@@ -6,6 +6,7 @@ import Films from './components/Films/Films';
 import Series from './components/Series/Series';
 import Sidebar from './components/Sidebar/Sidebar';
 import Contacts from './components/Contacts/Contacts';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path='/series' element={<Series/>}/>
             <Route path='/contacts' element={<Contacts/>}/>
         </Routes>
+        <Footer/>
     </div>
   );
 }

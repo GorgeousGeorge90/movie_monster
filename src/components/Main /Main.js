@@ -10,14 +10,13 @@ const Main = ()=> {
 
     const films = useSelector(state=>getNewFilms(state))
     const series = useSelector(state=>getSomeSeries(state))
-    const news = useSelector(state=>getNews(state))
     const dispatch = useDispatch()
-    console.log(news)
 
     useEffect(()=>{
         dispatch(addMovie())
         dispatch(addNewSeries())
     }, [])
+
 
     if (!films) {
         return <Preloader/>
@@ -49,12 +48,8 @@ const Main = ()=> {
                         />)
                     }
                 </div>
-
-
             </div>
-                <h1>News</h1>
-            </div>
-            )
+        </div>)
 }
 
 export default Main

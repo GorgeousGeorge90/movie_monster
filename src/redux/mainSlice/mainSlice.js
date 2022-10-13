@@ -9,14 +9,6 @@ export const addMovie = createAsyncThunk(
     }
 )
 
-export const addFreshNews = createAsyncThunk(
-    'main/addFreshNews',
-    async (args,{dispatch})=> {
-        const response = await movieApi.getNews()
-        dispatch(addNews(response.data.results))
-    }
-)
-
 export const addNewSeries = createAsyncThunk(
     'main/addNewSeries',
     async (args,{dispatch})=> {
@@ -30,7 +22,6 @@ const mainSlice = createSlice({
     initialState: {
         films: [],
         series:[],
-        news:[],
         isFetching: false,
     },
     reducers: {
@@ -42,10 +33,6 @@ const mainSlice = createSlice({
         addSeries: (state, action)=> {
             state.series = action.payload
         },
-
-        addNews: (state, action)=> {
-            state.news = action.payload
-        }
 
     },
 
@@ -62,16 +49,9 @@ const mainSlice = createSlice({
         [addNewSeries.fulfilled]:(state,action)=> {
             state.isFetching = false
         },
-        [addFreshNews.pending]:(state,action)=> {
-            state.isFetching = true
-        },
-        [addFreshNews.fulfilled]:(state,action)=> {
-            state.isFetching = false
-        },
-
     }
 })
 
-export const  {addFilms, addSeries, addNews} = mainSlice.actions
+export const  {addFilms, addSeries} = mainSlice.actions
 export default mainSlice.reducer
 
