@@ -1,7 +1,25 @@
 .card {
   display: flex;
-  border: none;
+  border: 1px solid darkgrey;
   border-radius: 10px;
-  background-color: lightgrey;
-  padding: 10px;
+  background-color: whitesmoke;
+  padding: 8px;
+  width: 500px;
+  margin: 10px;
+
+  img {
+    width: 30px ;
+  }
+
+  .name {
+    color: saddlebrown;
+    padding: 0 10px 0 10px;
+    margin: auto 0;
+  }
+
+  .likes {
+    flex-grow: 1;
+    text-align: end;
+    margin: auto 10px;
+  }
 } 

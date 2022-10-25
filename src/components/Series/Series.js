@@ -1,15 +1,26 @@
 import {useSelector} from 'react-redux';
-import {getNewFilms, getSomeSeries} from '../../selectors/selectors';
+import {getCheck, getMainIsFetching, getSomeSeries} from '../../selectors/selectors';
 import Preloader from '../common/Preloader/Preloader';
-import MovieDescription from "../Films/MovieDescription/MovieDescription";
+import MovieDescription from '../Films/MovieDescription/MovieDescription';
+import {useNavigate} from 'react-router-dom';
+import {useEffect} from 'react';
 
 
 
 const Series = ()=> {
     const series = useSelector(state=>getSomeSeries(state))
-    console.log(series)
+    const checked = useSelector(state=>getCheck(state))
+    const isFetching = useSelector(state=>getMainIsFetching(state))
+    const navigate = useNavigate()
 
-    if (!series) {
+    useEffect(()=> {
+        if (!checked) {
+            navigate('/main')
+        }
+    },[checked])
+
+
+    if (isFetching) {
         return <Preloader/>
     }
 

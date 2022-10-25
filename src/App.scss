@@ -1,4 +1,4 @@
-.app-wrapper {
+%app {
   display: grid;
   grid-template-areas: 'header header'
                         'sidebar main'
@@ -10,3 +10,15 @@
   margin: 0 auto;
   height: 100vh;
 }
+
+  .app__dark {
+    @extend %app;
+    --header-bg-color:grey;
+    --header-color:white;
+  }
+
+  .app__light {
+    @extend %app;
+    --header-bg-color:lightgrey;
+    --header-color:black;
+  }

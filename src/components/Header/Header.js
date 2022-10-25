@@ -1,16 +1,20 @@
 import {NavLink} from 'react-router-dom';
 import styles from './Header.module.scss'
 import {useDispatch, useSelector} from 'react-redux';
-import {getCheck, getEntrance} from '../../selectors/selectors';
+import {getCheck} from '../../selectors/selectors';
 import {logOut} from '../../redux/sidebarSlice/sidebarSlice';
-import logo from './../../assets/img/star.png';
-import {findAllByDisplayValue} from "@testing-library/react";
+import ReactSwitch from 'react-switch';
+import {useContext} from 'react';
+import ThemeContext from '../common/ThemeContext/ThemeContext';
+
+
 
 
 const Header = ()=> {
     const checked = useSelector(state=>getCheck(state))
     const dispatch = useDispatch()
     const setActive = ({isActive}) => ({color: isActive ? 'darkorange': 'white'})
+    const {theme,toggleTheme} = useContext(ThemeContext)
 
     return (
         <header className={styles.content}>
@@ -25,16 +29,16 @@ const Header = ()=> {
                     <li><NavLink style={setActive} to='/series'>TV series</NavLink></li>
                     <li><NavLink style={setActive} to='/contacts'>Contacts</NavLink></li>
                 </ul>
-                <div className={styles.logo}>
                     {
                         !checked ? null:
                             <div className={styles.hide}>
-                                <img src={logo} alt="logo"/>
                                 <button onClick={()=>dispatch(logOut())}>Exit</button>
                             </div>
                     }
-                </div>
             </nav>
+            <div className={styles.toggle}>
+                <ReactSwitch checked={theme==='dark'} onChange={toggleTheme}/>
+            </div>
         </header>
     )
 }

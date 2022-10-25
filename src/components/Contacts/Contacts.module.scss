@@ -1,17 +1,20 @@
 .content {
   font-family: 'Inter Tight', sans-serif;
   grid-area: main;
+  font-size: 0.8em;
+  color: #333;
+  margin: 20px 0 0 30px;
   .form {
 
     input {
-      height: 30px;
-      width: 900px;
+      height: 20px;
+      width: 600px;
     }
 
     textarea {
       resize: none;
-      width: 900px;
-      height: 200px;
+      width: 600px;
+      height: 100px;
     }
 
     button {

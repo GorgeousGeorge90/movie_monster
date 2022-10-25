@@ -1,39 +1,58 @@
 import {useForm} from 'react-hook-form';
 import {useDispatch, useSelector} from 'react-redux';
-import {addPost} from '../../redux/contactsSllice/contactsSlice';
-import {getPosts} from '../../selectors/selectors';
+import {addNewPost, getAllPosts} from '../../redux/contactsSllice/contactsSlice';
+import {getCheck, getPosts} from '../../selectors/selectors';
 import Post from './Post/Post';
 import styles from './Contacts.module.scss'
-import {useEffect} from "react";
+import {yupResolver} from '@hookform/resolvers/yup';
+import {reviewSchema} from '../../validations/validators';
+import {useEffect} from 'react';
+import Preloader from "../common/Preloader/Preloader";
 
 const Contacts = ()=> {
 
     const dispatch = useDispatch()
     const posts = useSelector(state=>getPosts(state))
-    useEffect(()=>{
-        localStorage.setItem('posts', JSON.stringify(posts))
-    },[posts])
+    const checked = useSelector(state=>getCheck(state))
 
-    const {register,handleSubmit,reset, formState:{errors}}=useForm()
+    useEffect(()=>{
+        dispatch(getAllPosts())
+    },[])
+
+    const {register,handleSubmit,reset, formState:{errors}}=useForm({
+        resolver: yupResolver(reviewSchema)
+    })
     const onSubmit = data => {
-        dispatch(addPost(data))
+        dispatch(addNewPost(data))
         reset()
     }
+
+    const errorStyle = {
+        color: 'red',
+        fontWeight: 'bolder',
+        fontSize: '1.2em',
+    }
+
+    if (!posts) {
+        return <Preloader/>
+    }
+
+
     return (
         <div className={styles.content}>
-            <h1>Contacts</h1>
-            <hr/>
             <div className={styles.form}>
-                <h3>We need your review!</h3>
+                <h1>We need your review!</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <p>
                     <input type="text" {...register('name')} placeholder={'your name'}/>
                 </p>
+                    {errors.name ? <span style={errorStyle}>{errors.name.message}</span>: null}
                 <p>
                     <textarea type="text" {...register('review')}/>
                 </p>
+                    {errors.review ? <span style={errorStyle}>{errors.review.message}</span>: null}
                 <p>
-                    <button type={"submit"}>Send</button>
+                    <button type={"submit"} disabled={!checked}>Send</button>
                 </p>
             </form>
             </div>

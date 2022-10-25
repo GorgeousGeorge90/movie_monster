@@ -1,9 +1,9 @@
 .content {
   grid-area: header;
-  background-color: #333;
+  background-color: var(--header-bg-color);
   font-family: "Droid Sans Mono Slashed";
   display: flex;
-  color: darkorange;
+  color: var(--header-color);
   margin: 0;
 
   .title {
@@ -34,35 +34,37 @@
     align-items: flex-end;
     justify-content: center;
     flex-grow: 1;
+    flex-direction: column-reverse;
 
     ul {
       list-style: none;
       display: flex;
+      align-items: flex-end;
+      flex-grow: 1;
 
-      li a {
+      a {
         text-decoration: none;
-        color: white;
+        color: whitesmoke;
         padding-left: 40px;
         font-size: 1.4em;
+
+        &:hover {
+          color: darkgrey;
+        }
       }
     }
-
-    .logo {
-      align-self: center;
-
-      .hide {
+    .hide {
         display: flex;
-
-        img {
-          height: 60px;
-        }
 
         button {
           height: 20px;
           width: 40px;
-          align-self: center;
+          margin-top: 100px;
         }
       }
     }
+
+  .toggle {
+    margin: 160px 20px 0 20px;
   }
-}
+  }

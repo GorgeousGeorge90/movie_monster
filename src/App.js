@@ -7,10 +7,14 @@ import Series from './components/Series/Series';
 import Sidebar from './components/Sidebar/Sidebar';
 import Contacts from './components/Contacts/Contacts';
 import Footer from './components/Footer/Footer';
+import {useContext} from 'react';
+import ThemeContext from './components/common/ThemeContext/ThemeContext';
+
 
 function App() {
-  return (
-    <div className='app-wrapper'>
+    const {theme} = useContext(ThemeContext)
+    return (
+    <div className={`app__${theme}`}>
         <Header/>
         <Sidebar/>
         <Routes>

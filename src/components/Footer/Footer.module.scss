@@ -1,13 +1,13 @@
 .content {
   grid-area: footer;
   display: flex;
-  background-color: #333;
+  background-color:var(--header-bg-color);
   justify-content: center;
   font-family: 'Inter Tight', sans-serif;
 
   a {
     text-decoration: none;
-    color: whitesmoke;
+    color: var(--header-color);
     margin: auto 0;
 
     &:hover {

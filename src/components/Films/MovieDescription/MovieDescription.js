@@ -7,9 +7,9 @@ const MovieDescription = ({poster,info,title,release})=>{
                 <img src={`https://image.tmdb.org/t/p/w500${poster}`} alt="pic"/>
             </div>
             <div className={styles.info}>
-                <span>{title}</span>
-                <span>{info}</span>
-                <span>Release date:{release}</span>
+                <span style={{fontWeight: 'bold'}}>{title}</span>
+                <span style={{opacity: 0.7}}>{info}</span>
+                <span style={{fontWeight: 'bold'}}>Release date:{release}</span>
             </div>
         </div>
     )

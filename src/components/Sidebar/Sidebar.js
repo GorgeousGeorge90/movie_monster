@@ -1,16 +1,15 @@
 import styles from './Sidebar.module.scss'
 import {useForm} from 'react-hook-form';
 import {useDispatch, useSelector} from 'react-redux';
-import {getCheck, getEntrance} from "../../selectors/selectors";
-import {checkIn} from "../../redux/sidebarSlice/sidebarSlice";
-import {loginSchema} from "../../validations/validators";
+import {getCheck} from '../../selectors/selectors';
+import {checkIn} from '../../redux/sidebarSlice/sidebarSlice';
+import {loginSchema} from '../../validations/validators';
 import { yupResolver } from '@hookform/resolvers/yup';
-import {useEffect} from "react";
+
 
 const Sidebar = ()=> {
 
     const dispatch = useDispatch()
-    const entrance = useSelector(state=>getEntrance(state))
     const checked = useSelector(state=>getCheck(state))
 
 
@@ -30,6 +29,8 @@ const Sidebar = ()=> {
                 <input type="password" {...register('password')} placeholder={'password'}/>
                 <button type={'submit'} disabled={ checked ? true: null}>Send</button>
             </form>
+            {errors.mail ?
+                <p>errors.?mail.?message</p>: null}
         </div>
     )
 }
