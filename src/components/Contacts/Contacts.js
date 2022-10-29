@@ -1,6 +1,6 @@
 import {useForm} from 'react-hook-form';
 import {useDispatch, useSelector} from 'react-redux';
-import {addNewPost, getAllPosts} from '../../redux/contactsSllice/contactsSlice';
+import {addNewPost, getAllPosts} from '../../redux/contactsSlice';
 import {getCheck, getPosts} from '../../selectors/selectors';
 import Post from './Post/Post';
 import styles from './Contacts.module.scss'
@@ -17,6 +17,7 @@ const Contacts = ()=> {
 
     useEffect(()=>{
         dispatch(getAllPosts())
+        console.log(posts)
     },[])
 
     const {register,handleSubmit,reset, formState:{errors}}=useForm({

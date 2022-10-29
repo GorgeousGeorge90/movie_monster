@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {getMainIsFetching, getNewFilms, getSomeSeries} from '../../selectors/selectors';
 import {useEffect} from 'react';
-import {addMovie, addNewSeries} from '../../redux/mainSlice/mainSlice';
+import {getFilms, getSeries} from '../../redux/mainSlice';
 import Preloader from '../common/Preloader/Preloader';
 import OneFilm from './OneFilm/OneFilm';
 import styles from './Main.module.scss';
@@ -14,9 +14,9 @@ const Main = ()=> {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(addMovie())
-        dispatch(addNewSeries())
-    }, [])
+        dispatch(getFilms())
+        dispatch(getSeries())
+    }, [dispatch])
 
 
     if (isFetching) {

@@ -2,7 +2,7 @@ import styles from './Sidebar.module.scss'
 import {useForm} from 'react-hook-form';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCheck} from '../../selectors/selectors';
-import {checkIn} from '../../redux/sidebarSlice/sidebarSlice';
+import {checkIn} from '../../redux/sidebarSlice';
 import {loginSchema} from '../../validations/validators';
 import { yupResolver } from '@hookform/resolvers/yup';
 

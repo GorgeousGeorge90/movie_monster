@@ -2,7 +2,7 @@ import {NavLink} from 'react-router-dom';
 import styles from './Header.module.scss'
 import {useDispatch, useSelector} from 'react-redux';
 import {getCheck} from '../../selectors/selectors';
-import {logOut} from '../../redux/sidebarSlice/sidebarSlice';
+import {logOut} from '../../redux/sidebarSlice';
 import ReactSwitch from 'react-switch';
 import {useContext} from 'react';
 import ThemeContext from '../common/ThemeContext/ThemeContext';
