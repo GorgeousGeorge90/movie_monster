@@ -17,6 +17,9 @@ The main idea of APP - to fetch some info about movies, but you also can
 change theme of your APP! Use this data to login:<br>
 <b>email:</b> free@mail.ru <br>
 <b>password:</b> 5555
+it also has two realizations:
+* with redux-thunk in <b>main brach</b>;
+* with redux-saga in <b>saga branch</b>;
 
 
 
